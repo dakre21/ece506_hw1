@@ -1,7 +1,5 @@
 Breakpoint File Version 1.0
-84 true /home/dakre/ece506_hw1/src/sort_controller.v
-77 true /home/dakre/ece506_hw1/src/sort_controller.v
+53 true /home/dakre/ece506_hw1/src/memory.v
 46 true /home/dakre/ece506_hw1/src/memory.v
 47 true /home/dakre/ece506_hw1/src/memory.v
-49 true /home/dakre/ece506_hw1/src/memory.v
-53 true /home/dakre/ece506_hw1/src/memory.v
+45 true /home/dakre/ece506_hw1/src/memory.v
