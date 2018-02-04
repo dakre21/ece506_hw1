@@ -1,0 +1,5 @@
+*.jou
+*.log
+*.str
+sort/sort.runs/synth_1/
+sort/sort.runs/impl_1/
