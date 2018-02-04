@@ -18,42 +18,42 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-/*module sort_TB();
-    reg Clk;
-    reg Go, Rst;
-    reg[4:0] N;
-    wire [7:0] Sorted_Data
-
-
+module sort_TB();
+    reg clk, go, rst, flag;
+    reg [8:0] n;
+    wire [8:0] sorted_data;
     integer i;
+    
+    parameter DATAWIDTH = 8;
+    parameter DATACOUNT = 32;
+    parameter TIMECOUNT = 10000;
 
-    sort_top my_sort( Go, Rst, Clk, N, Sorted_Data);
+    sort_top #(DATAWIDTH) my_sort(go, rst, clk, n, sorted_data);
+    
+    // Start clock
     always begin
-        Clk <=1;
-        #5;
-        Clk<=0;
-        #5;
+        #5 clk <= ~clk;
     end
 
+    // Run simulation code once
     initial begin
-        Rst <=1;
-        Go<=0;
-        N<=31;
+        rst <= 1;
+        go <= 0;
+        clk <= 0;
+        n <= 32;
+        flag <= 0;
 
-        @(posedge Clk);
-        #5;
-        Rst <=0;
-        Go <= 1;
-        @(posedge Clk);
-        #5;
-        Go <=0;
+        @(posedge clk);
+        rst <= 0;
+        #10 go <= 1;
+        @(posedge clk);
+        #10 go <= 0;
 
-        // you may need to replace 5000 with larger value to accomodate 
-        // displaying the sorted data
-        for (i=0; i<5000;i=i+1) begin
-            @(posedge Clk);
-
-          
+        // Delay for 10000 clock cycles to get the sorted data
+        for (i = 0; i < TIMECOUNT; i = i + 1) begin
+            @(posedge clk);
+            
         end
+           
     end
-endmodule*/
+endmodule

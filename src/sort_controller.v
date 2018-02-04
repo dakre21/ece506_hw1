@@ -17,8 +17,8 @@
 // Module creates the controller 
 ////////////////////////////////////////////////////////////////////////////////
 
-module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_clr, 
-    c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld);
+module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_add, 
+    sel_data, c_clr, c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld, ren, wen);
 
     // Parameter describing the width of N = 32
     parameter DATAWIDTH = 32;
@@ -29,14 +29,14 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
     // Inputs and outputs to module datapath
     input [DATAWIDTH-1:0] c_n;
     input go, c_clk, rst, c_lt_n_1, d_lt_n_c_1, t1_gt_t2;
-    output reg c_clr, c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld;
+    output reg c_clr, c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld, sel_add, sel_data,
+        ren, wen;
     
     // Internal controller regs and input/outputs
     reg [4:0] state, nstate;
-    reg [DATAWIDTH-1:0] c, d;
     
     // Define the combinational logic that will control configuration of datapath
-    // and determine the next state
+    // aznd determine the next state
     always @(state, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2) begin 
         case (state)
             s_wait: begin
@@ -47,7 +47,6 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
                 end
             end
             s_init_c: begin
-                c <= 0;
                 c_clr <= 1;
                 c_ld <= 0;
                 nstate <= s_check_c;
@@ -62,7 +61,6 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
                 end
             end
             s_init_d: begin
-                d <= 0;
                 d_clr <= 1;
                 d_ld <= 0;
                 nstate <= s_check_d;
@@ -74,6 +72,8 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
                 t1_ld <= 0;
                 t2_clr <= 1;
                 t2_ld <= 0;
+                ren <= 0;
+                wen <= 0;
                 if (d_lt_n_c_1 == 0) begin
                     nstate <= s_inc_c;
                 end else begin
@@ -82,15 +82,19 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
             end
             s_read_t1: begin
                 t1_ld <= 1;
+                ren <= 1;
                 t1_clr <= 0;
+                t2_clr <= 0;
+                sel_add <= 0;
                 nstate <= s_read_t2;
             end
             s_read_t2: begin
                 t2_ld <= 1;
-                t2_clr <= 0;
+                sel_add <= 1;
                 nstate <= s_check_t1t2;
             end
             s_check_t1t2: begin
+                ren <= 0;
                 t1_ld <= 0;
                 t2_ld <= 0;
                 if (t1_gt_t2 == 0) begin
@@ -101,15 +105,19 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
             end
             s_write_t1: begin
                 t1_ld <= 1;
+                wen <= 1;
+                sel_data <= 0;
                 nstate <= s_write_t2;
             end
             s_write_t2: begin
                 t1_ld <= 0;
                 t2_ld <= 1;
+                sel_data <= 1;
                 nstate <= s_inc_d;
             end
             s_inc_d: begin
                 t2_ld <= 0;
+                wen <= 0;
                 d_ld <= 1;
                 nstate <= s_check_d;
             end
@@ -124,7 +132,7 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, c_cl
     
     // Define the state transition in each clock cycle based on the state determined above
     always @(posedge c_clk) begin
-        if (rst == 0) begin
+        if (rst == 1) begin
             state <= s_wait;
         end else begin
             state <= nstate;

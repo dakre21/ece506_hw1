@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../../src/memory.v"
+verilog xil_defaultlib  "../../../../src/sort_controller.v"
+verilog xil_defaultlib  "../../../../src/sort_datapath.v"
+verilog xil_defaultlib  "../../../../src/sort_dec.v"
+verilog xil_defaultlib  "../../../../src/sort_gt.v"
+verilog xil_defaultlib  "../../../../src/sort_inc.v"
+verilog xil_defaultlib  "../../../../src/sort_lt.v"
+verilog xil_defaultlib  "../../../../src/sort_mux.v"
+verilog xil_defaultlib  "../../../../src/sort_reg.v"
+verilog xil_defaultlib  "../../../../src/sort_sub.v"
+verilog xil_defaultlib  "../../../../src/sort_top.v"
+verilog xil_defaultlib  "../../../../src/sort_TB.v"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
