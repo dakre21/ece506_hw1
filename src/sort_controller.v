@@ -12,7 +12,7 @@
 // Module creates the controller 
 ////////////////////////////////////////////////////////////////////////////////
 
-module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_add, 
+module sort_controller(c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_add, 
     sel_data, c_clr, c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld, ren, wen);
 
     // Parameter describing the width of N = 32
@@ -22,7 +22,6 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_
         s_inc_d = 10, s_inc_c = 11; 
     
     // Inputs and outputs to module datapath
-    input [DATAWIDTH-1:0] c_n;
     input go, c_clk, rst, c_lt_n_1, d_lt_n_c_1, t1_gt_t2;
     output reg c_clr, c_ld, d_clr, d_ld, t1_clr, t1_ld, t2_clr, t2_ld, sel_add, sel_data,
         ren, wen;

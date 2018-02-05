@@ -43,10 +43,10 @@ module sort_TB();
         clk <= 0;
         n <= DATACOUNT;
         flag <= 0;
-
+        
         @(posedge clk);
         rst <= 0;
-        #10 go <= 1;
+        #105 go <= 1;
         @(posedge clk);
         #10 go <= 0;
 

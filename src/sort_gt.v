@@ -25,7 +25,7 @@ module sort_gt(a, b, c);
 
     // Input and output declarations for the reg module
     input [DATAWIDTH-1:0] a, b;
-    output reg [DATAWIDTH-1:0] c;
+    output reg c;
 
     always @(a, b) begin
         if (a > b) begin

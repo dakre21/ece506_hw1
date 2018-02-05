@@ -27,15 +27,17 @@
 
 module DataMemory(Address, WriteData, Clk, MemWrite, MemRead, ReadData); 
 
-    input [4:0] Address;   // Input Address 
-    input [7:0] WriteData; // Data that needs to be written into the address 
+    parameter DATAWIDTH = 32;
+    
+    input [DATAWIDTH-1:0] Address;   // Input Address 
+    input [DATAWIDTH-1:0] WriteData; // Data that needs to be written into the address 
     input Clk;
     input MemWrite;         // Control signal for memory write 
     input MemRead;          // Control signal for memory read 
 
-    output reg[7:0] ReadData; // Contents of memory location at Address
+    output reg[DATAWIDTH-1:0] ReadData; // Contents of memory location at Address
 
-    reg [7:0] Memory[0:31];    // size needs to be adjusted based on the size of the test_data.txt
+    reg [DATAWIDTH-1:0] Memory[0:31];    // size needs to be adjusted based on the size of the test_data.txt
    
     always @(posedge Clk) begin      //Memory write
         if (MemWrite==1)
