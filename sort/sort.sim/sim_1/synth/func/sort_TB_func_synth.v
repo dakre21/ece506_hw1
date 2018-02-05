@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.2 (lin64) Build 1909853 Thu Jun 15 18:39:10 MDT 2017
-// Date        : Sun Feb  4 22:38:53 2018
+// Date        : Sun Feb  4 22:43:17 2018
 // Host        : dakre-VirtualBox running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -mode funcsim -nolib -force -file
 //               /home/dakre/ece506_hw1/sort/sort.sim/sim_1/synth/func/sort_TB_func_synth.v

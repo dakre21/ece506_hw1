@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="sort_TB_time_synth.wdb" id="1">
+      <db_ref path="sort_TB_func_synth.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="sort_TB" />
@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="7638787fs"></ZoomEndTime>
+      <ZoomStartTime time="7507000000fs"></ZoomStartTime>
+      <ZoomEndTime time="7554214205fs"></ZoomEndTime>
       <Cursor1Time time="50000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+      <ValueColumnWidth column_width="122"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="12" />
+   <WVObjectSize size="16" />
    <wvobject type="logic" fp_name="/sort_TB/clk">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -60,12 +60,28 @@
       <obj_property name="ElementShortName">TIMECOUNT[31:0]</obj_property>
       <obj_property name="ObjectShortName">TIMECOUNT[31:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/sort_TB/my_sort/controller/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/sort_TB/my_sort/memory/Address">
+      <obj_property name="ElementShortName">Address[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Address[4:0]</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/sort_TB/my_sort/memory/ReadData0">
       <obj_property name="ElementShortName">ReadData0[7:0]</obj_property>
       <obj_property name="ObjectShortName">ReadData0[7:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/sort_TB/my_sort/controller/state">
-      <obj_property name="ElementShortName">state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   <wvobject type="array" fp_name="/sort_TB/my_sort/memory/WriteData">
+      <obj_property name="ElementShortName">WriteData[7:0]</obj_property>
+      <obj_property name="ObjectShortName">WriteData[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sort_TB/my_sort/memory/t_clk_IBUF_BUFG">
+      <obj_property name="ElementShortName">t_clk_IBUF_BUFG</obj_property>
+      <obj_property name="ObjectShortName">t_clk_IBUF_BUFG</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/sort_TB/my_sort/memory/wen">
+      <obj_property name="ElementShortName">wen</obj_property>
+      <obj_property name="ObjectShortName">wen</obj_property>
    </wvobject>
 </wave_config>
