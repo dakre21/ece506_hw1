@@ -25,7 +25,7 @@ module sort_TB();
     integer i;
     
     parameter DATAWIDTH = 8;
-    parameter DATACOUNT = 32;
+    parameter DATACOUNT = 33;
     parameter TIMECOUNT = 10000;
 
     sort_top #(DATAWIDTH) my_sort(go, rst, clk, n, sorted_data);
@@ -40,7 +40,7 @@ module sort_TB();
         rst <= 1;
         go <= 0;
         clk <= 0;
-        n <= 32;
+        n <= DATACOUNT;
         flag <= 0;
 
         @(posedge clk);
