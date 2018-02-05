@@ -2,6 +2,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 // Company: ECE506
 // Engineer: Ali Akoglu
+// Student/Modified-by: David Akre
 // 
 // Create Date:     
 // Design Name: 
@@ -26,7 +27,7 @@ module sort_TB();
     
     parameter DATAWIDTH = 8;
     parameter DATACOUNT = 33;
-    parameter TIMECOUNT = 10000;
+    parameter TIMECOUNT = 50000;
 
     sort_top #(DATAWIDTH) my_sort(go, rst, clk, n, sorted_data);
     
@@ -52,7 +53,7 @@ module sort_TB();
         // Delay for 10000 clock cycles to get the sorted data
         for (i = 0; i < TIMECOUNT; i = i + 1) begin
             @(posedge clk);
-            
+            $display("Clock cycle %d", i);
         end
            
     end

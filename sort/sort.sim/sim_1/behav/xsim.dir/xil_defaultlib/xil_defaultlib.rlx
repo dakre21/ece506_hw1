@@ -4,9 +4,9 @@ Jun 15 2017
 18:41:53
 /home/dakre/ece506_hw1/sort/sort.sim/sim_1/behav/glbl.v,1497407496,verilog,,,,glbl,,,,,,,,
 /home/dakre/ece506_hw1/src/memory.v,1517692112,verilog,,,,DataMemory,,,,,,,,
-/home/dakre/ece506_hw1/src/sort_TB.v,1517798930,verilog,,,,sort_TB,,,,,,,,
-/home/dakre/ece506_hw1/src/sort_controller.v,1517798009,verilog,,,,sort_controller,,,,,,,,
-/home/dakre/ece506_hw1/src/sort_datapath.v,1517799062,verilog,,,,sort_datapath,,,,,,,,
+/home/dakre/ece506_hw1/src/sort_TB.v,1517801845,verilog,,,,sort_TB,,,,,,,,
+/home/dakre/ece506_hw1/src/sort_controller.v,1517801859,verilog,,,,sort_controller,,,,,,,,
+/home/dakre/ece506_hw1/src/sort_datapath.v,1517801869,verilog,,,,sort_datapath,,,,,,,,
 /home/dakre/ece506_hw1/src/sort_dec.v,1517711781,verilog,,,,sort_dec,,,,,,,,
 /home/dakre/ece506_hw1/src/sort_gt.v,1517701415,verilog,,,,sort_gt,,,,,,,,
 /home/dakre/ece506_hw1/src/sort_inc.v,1517698702,verilog,,,,sort_inc,,,,,,,,
@@ -14,4 +14,4 @@ Jun 15 2017
 /home/dakre/ece506_hw1/src/sort_mux.v,1517699814,verilog,,,,sort_mux,,,,,,,,
 /home/dakre/ece506_hw1/src/sort_reg.v,1517694376,verilog,,,,sort_reg,,,,,,,,
 /home/dakre/ece506_hw1/src/sort_sub.v,1517693160,verilog,,,,sort_sub,,,,,,,,
-/home/dakre/ece506_hw1/src/sort_top.v,1517799866,verilog,,,,sort_top,,,,,,,,
+/home/dakre/ece506_hw1/src/sort_top.v,1517801823,verilog,,,,sort_top,,,,,,,,

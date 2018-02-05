@@ -6,11 +6,6 @@
 // 
 // Module - sort_datapath
 // Description - Module that creates the structure design for the datapath
-//
-// INPUTS:-
-// 
-//
-// OUTPUTS:-
 // 
 //
 // FUNCTIONALITY:-

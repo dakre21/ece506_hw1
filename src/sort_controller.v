@@ -6,11 +6,6 @@
 // 
 // Module - sort_controller
 // Description - Module that creates the structure design for the controller
-//
-// INPUTS:-
-// 
-//
-// OUTPUTS:-
 // 
 //
 // FUNCTIONALITY:-
