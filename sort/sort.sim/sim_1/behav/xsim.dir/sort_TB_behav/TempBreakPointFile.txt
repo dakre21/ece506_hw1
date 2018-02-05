@@ -1,5 +1,1 @@
 Breakpoint File Version 1.0
-53 true /home/dakre/ece506_hw1/src/memory.v
-46 true /home/dakre/ece506_hw1/src/memory.v
-47 true /home/dakre/ece506_hw1/src/memory.v
-45 true /home/dakre/ece506_hw1/src/memory.v

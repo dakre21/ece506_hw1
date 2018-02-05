@@ -49,6 +49,8 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_
             s_init_c: begin
                 c_clr <= 1;
                 c_ld <= 0;
+                sel_add <= 0;
+                sel_data <= 0;
                 nstate <= s_check_c;
             end
             s_check_c: begin
@@ -90,29 +92,28 @@ module sort_controller(c_n, c_clk, rst, go, c_lt_n_1, d_lt_n_c_1, t1_gt_t2, sel_
             end
             s_read_t2: begin
                 t2_ld <= 1;
+                t1_ld <= 0;
                 sel_add <= 1;
                 nstate <= s_check_t1t2;
             end
             s_check_t1t2: begin
                 ren <= 0;
-                t1_ld <= 0;
                 t2_ld <= 0;
-                if (t1_gt_t2 == 0) begin
-                    nstate <= s_inc_d;
-                end else begin
+                if (t1_gt_t2 == 1) begin
                     nstate <= s_write_t1;
+                end else begin
+                    nstate <= s_inc_d;
                 end
             end
             s_write_t1: begin
-                t1_ld <= 1;
                 wen <= 1;
                 sel_data <= 0;
+                sel_add <= 1;
                 nstate <= s_write_t2;
             end
             s_write_t2: begin
-                t1_ld <= 0;
-                t2_ld <= 1;
                 sel_data <= 1;
+                sel_add <= 0;
                 nstate <= s_inc_d;
             end
             s_inc_d: begin
