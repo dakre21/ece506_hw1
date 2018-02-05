@@ -27,8 +27,6 @@ module sort_top(t_go, t_rst, t_clk, t_n, t_sorted_data);
     input t_go, t_rst, t_clk;
     input [DATAWIDTH-1:0] t_n;
     output [DATAWIDTH-1:0] t_sorted_data;
-    //input [4:0] t_n;
-    //output [7:0] t_sorted_data;
 
     // Internal wires and reg declarations
     wire [DATAWIDTH-1:0] t_address, t_rdata, t_wdata;
@@ -41,12 +39,9 @@ module sort_top(t_go, t_rst, t_clk, t_n, t_sorted_data);
         t_d_lt_n_c_1, t_t1_gt_t2, t_sel_add, t_sel_data, t_c_clr, t_c_ld, t_d_clr, t_d_ld, 
         t_t1_clr, t_t1_ld, t_t2_clr, t_t2_ld, t_read, t_write);
     sort_datapath #(DATAWIDTH) datapath(t_n, t_clk, t_c_clr, t_c_ld, t_d_clr, t_d_ld, 
-        t_sel_add, t_sel_data, t_rdata, t_t1_clr, t_t1_ld, t_t2_clr, t_t2_ld, t_c_lt_n_1, 
+        t_sel_add, t_sel_data, t_sorted_data, t_t1_clr, t_t1_ld, t_t2_clr, t_t2_ld, t_c_lt_n_1, 
         t_d_lt_n_c_1, t_t1_gt_t2, t_address, t_wdata);
-    DataMemory memory(t_address, t_wdata, t_clk, t_write, t_read, t_rdata); 
+    DataMemory memory(t_address, t_wdata, t_clk, t_write, t_read, t_sorted_data); 
 
-/* after completion of the sorting, you need to read out the
-   values from the DataMemory into the "t_sorted_data" output
-   for this you need a "done" flag when sorting has ben completed */
 
 endmodule
